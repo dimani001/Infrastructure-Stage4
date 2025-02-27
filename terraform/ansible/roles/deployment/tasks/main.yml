@@ -1,0 +1,62 @@
+- name: Clone the repository
+  git:
+    repo: "https://github.com/citadelict/DevOps-Stage-4.git"
+    dest: "/home/ubuntu/todo-app"
+    version: main
+
+- name: Install Java
+  apt:
+    name: openjdk-17-jdk
+    state: present
+  become: yes
+
+- name: Set JAVA_HOME
+  lineinfile:
+    path: /etc/environment
+    line: 'JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64'
+  become: yes
+
+- name: Load JAVA_HOME into current session
+  shell: source /etc/environment
+  args:
+    executable: /bin/bash
+  changed_when: false
+
+# - name: Change directory to users-api and build the project
+#   command: ./mvnw clean install
+#   args:
+#     chdir: /home/ubuntu/todo-app/users-api
+
+- name: Create Docker network 'web' if it doesn't exist
+  docker_network:
+    name: web
+    state: present
+  become: yes
+
+- name: Create traefik directory
+  file:
+    path: /home/ubuntu/todo-app/traefik
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: Create and set permissions for acme.json
+  file:
+    path: /home/ubuntu/todo-app/traefik/acme.json
+    state: touch
+    mode: '0600'
+    owner: ubuntu
+    group: ubuntu
+  become: yes
+
+- name: Set permissions for acme.json
+  file:
+    path: /home/ubuntu/todo-app/traefik/acme.json
+    mode: '0600'
+    state: file
+  become: yes
+
+- name: Start the application with Docker Compose
+  command: docker-compose up -d
+  args:
+    chdir: /home/ubuntu/todo-app
