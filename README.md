@@ -37,7 +37,7 @@ stage4-infra-repo/
 - Terraform >= 1.0.0
 - Ansible >= 2.9
 - AWS CLI configured
-- SSH key pair named "chidi-dev"
+- SSH key pair named "dimma-dev"
 
 ## Infrastructure Components
 
