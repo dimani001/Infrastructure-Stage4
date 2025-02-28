@@ -24,7 +24,7 @@ variable "server_count" {
 variable "domain" {
   description = "Domain name for the application"
   type        = string
-  default = "citatech.online"
+  default = "demo-domain.online"
 }
 
 variable "hosted_zone_id" {
@@ -36,6 +36,6 @@ variable "hosted_zone_id" {
 variable "key_name" {
   description = "SSH key name"
   type        = string
-  default = "chidi-dev"
+  default = "dimma-dev"
   
 }

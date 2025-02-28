@@ -4,8 +4,8 @@ This repository contains Infrastructure as Code (IaC) for deploying a multi-serv
 
 ## Repository Links
 
-- **Infrastructure Repository**: [stage4-infra-repo](https://github.com/citadelict/stage4-infra-repo)
-- **Containerized Application Repository**: [DevOps-Stage-4](https://github.com/citadelict/DevOps-Stage-4)
+- **Infrastructure Repository**: [stage4-infra-repo](https://github.com/dimani001/Infrastructure-Stage4.git)
+- **Containerized Application Repository**: [DevOps-Stage-4](https://github.com/dimani001/DevOps-Stage-4.git)
 
 ## Directory Structure
 
@@ -64,8 +64,8 @@ stage4-infra-repo/
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/citadelict/stage4-infra-repo.git
-cd stage4-infra-repo
+git clone https://github.com/dimani001/Infrastructure-Stage4.git
+cd Infrastructure-Stage4
 ```
 
 2. **Initialize Terraform**
